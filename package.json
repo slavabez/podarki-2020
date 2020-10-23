@@ -3,7 +3,7 @@
   "private": true,
   "description": "Podarki site",
   "version": "0.1.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
