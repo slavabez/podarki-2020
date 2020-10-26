@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import Layout from "../components/Layout";
 
 export const query = graphql`
   query {
@@ -28,7 +29,7 @@ const IndexPage = ({ data }) => {
   ];
 
   return (
-    <section>
+    <Layout>
       <h1>Сайт в разработке</h1>
       {cats.map((c) => {
         return (
@@ -39,7 +40,7 @@ const IndexPage = ({ data }) => {
           </p>
         );
       })}
-    </section>
+    </Layout>
   );
 };
 
