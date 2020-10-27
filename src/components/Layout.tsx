@@ -56,9 +56,13 @@ const AddressTop = styled.div`
     color: white;
     font-weight: 700;
     text-align: center;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
   }
 `;
-const AddressIconContainer = styled.div``;
+const AddressIconContainer = styled.div`
+  padding: 0.25rem;
+`;
 const AddressTextContainer = styled.div``;
 
 const AddressBottom = styled.div`
@@ -69,12 +73,12 @@ const AddressBottom = styled.div`
   address {
     font-family: "Montserrat", sans-serif;
     color: white;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
-    
+
     padding: 0.2rem 0;
-    
+
     a {
       color: white;
     }
@@ -85,6 +89,7 @@ const Divider = styled.div`
   width: 2px;
   min-height: 45px;
   background-color: white;
+  margin: 0 0.5rem;
 `;
 const RightHalf = styled.div``;
 
@@ -104,7 +109,7 @@ const Layout = (props) => {
               <img src={mapIcon} alt="Karta" />
             </AddressIconContainer>
             <AddressTextContainer>
-              <address>Сказка ждёт вас по адресу:</address>
+              <address>Сказка ждёт вас:</address>
               <address>г. Кокшетау, Ауэзова 191/1</address>
             </AddressTextContainer>
           </AddressTop>
@@ -131,7 +136,7 @@ const Layout = (props) => {
               <img src={mapIcon} alt="Karta" />
             </AddressIconContainer>
             <AddressTextContainer>
-              <address>Сказка ждёт вас по адресу:</address>
+              <address>Сказка ждёт вас:</address>
               <address>г. Костанай, Карбышева 117</address>
             </AddressTextContainer>
           </AddressTop>
