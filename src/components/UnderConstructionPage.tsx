@@ -8,11 +8,12 @@ const UnderConstructionNotice = styled.div`
   box-sizing: border-box;
   border-radius: 29px;
 
-  margin: 1rem;
   padding: 2rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin-bottom: 3rem;
 
   span {
     font-family: "Roboto", sans-serif;
@@ -28,7 +29,7 @@ const UnderConstructionNotice = styled.div`
 `;
 
 const BannerContainer = styled.div`
-  width: 80%;
+  width: 90%;
 `;
 
 const LinkContainer = styled.div`
@@ -39,10 +40,10 @@ const LinkContainer = styled.div`
 
 const ButtonLink = styled.a`
   padding: 1rem;
-  margin: 0.5rem;
   border: 3px solid #9c9afd;
   border-radius: 3rem;
   text-align: center;
+  margin-bottom: 1rem;
 `;
 
 interface Catalogue {
