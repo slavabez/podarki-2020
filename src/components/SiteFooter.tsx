@@ -5,6 +5,14 @@ const mapIcon = require("../../media/svgs/map_icon.svg") as string;
 const Footer = styled.footer`
   width: 100%;
   background: linear-gradient(91.06deg, #e3b4f0 -5.78%, #50b5ff 136.34%);
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 `;
 
 const AddressBlock = styled.div`

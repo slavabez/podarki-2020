@@ -30,6 +30,7 @@ const UnderConstructionNotice = styled.div`
 
 const BannerContainer = styled.div`
   width: 90%;
+  max-width: 300px;
 `;
 
 const LinkContainer = styled.div`

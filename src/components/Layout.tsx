@@ -23,6 +23,10 @@ const Header = styled.header`
   display: flex;
   align-content: center;
   justify-content: center;
+  
+  @media(min-width: 500px) {
+    padding: 1.5rem;
+  }
 `;
 
 const SiteTitle = styled.span`
@@ -30,6 +34,10 @@ const SiteTitle = styled.span`
   font-weight: 700;
   font-size: 2rem;
   color: white;
+  
+  @media(min-width: 500px) {
+    font-size: 3rem;
+  }
 `;
 
 const Main = styled.main`
@@ -37,7 +45,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1rem;
 `;
 
