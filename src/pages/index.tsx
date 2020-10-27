@@ -1,14 +1,30 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
+import UnderConstructionPage from "../components/UnderConstructionPage";
 
 export const query = graphql`
   query {
-    allFile(filter: { sourceInstanceName: { eq: "files" } }) {
+    allFile(filter: { extension: { eq: "pdf" } }) {
       nodes {
         relativePath
         publicURL
         prettySize
+      }
+    }
+    file(relativePath: { eq: "2021_image.png" }) {
+      relativePath
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          aspectRatio
+          base64
+          originalImg
+          originalName
+          presentationHeight
+          presentationWidth
+          sizes
+          src
+        }
       }
     }
   }
@@ -27,19 +43,11 @@ const IndexPage = ({ data }) => {
       url: data.allFile.nodes[0].publicURL,
     },
   ];
+  const mainImage = data?.file?.childImageSharp?.fluid;
 
   return (
     <Layout>
-      <h1>Сайт в разработке</h1>
-      {cats.map((c) => {
-        return (
-          <p key={c.name}>
-            <a href={c.url}>
-              {c.name} - {c.size}
-            </a>
-          </p>
-        );
-      })}
+      <UnderConstructionPage cats={cats} bannerImage={mainImage} />
     </Layout>
   );
 };
