@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
+import { SRLWrapper } from "simple-react-lightbox";
+
 import Img from "gatsby-image";
 
 export interface PresentGalleryItem {
@@ -59,8 +61,9 @@ const OtherImageContainer = styled.div`
   padding: 5px;
 `;
 const MiniImageWrapper = styled.div`
+  margin-top: 0.5rem;
   max-height: 60px;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 `;
 
@@ -102,21 +105,23 @@ const Gallery: React.FC<{ imageData: PresentGalleryItem[] }> = ({
         {imageData.map((id) => {
           return (
             <GalleryItemCard>
-              <CoverImageWrapper>
-                <Img key={id.relativePath} fluid={id.coverImage} />
-              </CoverImageWrapper>
-              <OtherImageContainer>
-                {id.images.map((imgData) => (
-                  <MiniImageWrapper>
-                    <Img key={imgData?.src} fluid={imgData} />
-                  </MiniImageWrapper>
-                ))}
-              </OtherImageContainer>
-              <MetadataContainer>
-                <Price>1000 ₸</Price>
-                <Name>{id.relativePath}</Name>
-                <Weight>455г</Weight>
-              </MetadataContainer>
+              <SRLWrapper>
+                <CoverImageWrapper>
+                  <Img key={id.relativePath} fluid={id.coverImage} />
+                </CoverImageWrapper>
+                <OtherImageContainer>
+                  {id.images.map((imgData) => (
+                    <MiniImageWrapper>
+                      <Img key={imgData?.src} fluid={imgData} />
+                    </MiniImageWrapper>
+                  ))}
+                </OtherImageContainer>
+                <MetadataContainer>
+                  <Price>1000 ₸</Price>
+                  <Name>{id.relativePath}</Name>
+                  <Weight>455г</Weight>
+                </MetadataContainer>
+              </SRLWrapper>
             </GalleryItemCard>
           );
         })}
