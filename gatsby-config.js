@@ -33,8 +33,21 @@ module.exports = {
         display: `swap`,
       },
     },
+    `simple-react-lightbox`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Сказка Подарки 2021`,
+        short_name: `Подарки 2021`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#e181fa`,
+        display: `standalone`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 };
