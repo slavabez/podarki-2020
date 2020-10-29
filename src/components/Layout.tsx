@@ -91,7 +91,7 @@ const Main = styled.main`
   align-items: center;
   justify-content: flex-start;
   padding: 1rem;
-  width: 100%;
+  width: calc(100% - 2rem);
   max-width: 800px;
   align-self: center;
 `;
