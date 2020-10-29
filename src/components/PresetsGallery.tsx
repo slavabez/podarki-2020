@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { SRLWrapper } from "simple-react-lightbox";
+
+import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 
 import Img from "gatsby-image";
 
@@ -103,25 +104,40 @@ const Gallery: React.FC<{ imageData: PresentGalleryItem[] }> = ({
       </FilterButtons>
       <GalleryWrapper>
         {imageData.map((id) => {
+          const description = `Новогодний подарок "${id.relativePath}", 400 грамм за 1000 тенге.`;
           return (
             <GalleryItemCard>
-              <SRLWrapper>
-                <CoverImageWrapper>
-                  <Img key={id.relativePath} fluid={id.coverImage} />
-                </CoverImageWrapper>
-                <OtherImageContainer>
-                  {id.images.map((imgData) => (
-                    <MiniImageWrapper>
-                      <Img key={imgData?.src} fluid={imgData} />
-                    </MiniImageWrapper>
-                  ))}
-                </OtherImageContainer>
-                <MetadataContainer>
-                  <Price>1000 ₸</Price>
-                  <Name>{id.relativePath}</Name>
-                  <Weight>455г</Weight>
-                </MetadataContainer>
-              </SRLWrapper>
+              <SimpleReactLightbox>
+                <SRLWrapper options={{
+                  caption: {
+                    captionFontFamily: "Roboto, sans-serif"
+                  }
+                }}>
+                  <CoverImageWrapper>
+                    <Img
+                      key={id.relativePath}
+                      fluid={id.coverImage}
+                      alt={description}
+                    />
+                  </CoverImageWrapper>
+                  <OtherImageContainer>
+                    {id.images.map((imgData) => (
+                      <MiniImageWrapper>
+                        <Img
+                          key={imgData?.src}
+                          fluid={imgData}
+                          alt={description}
+                        />
+                      </MiniImageWrapper>
+                    ))}
+                  </OtherImageContainer>
+                  <MetadataContainer>
+                    <Price>1000 ₸</Price>
+                    <Name>{id.relativePath}</Name>
+                    <Weight>455г</Weight>
+                  </MetadataContainer>
+                </SRLWrapper>
+              </SimpleReactLightbox>
             </GalleryItemCard>
           );
         })}
