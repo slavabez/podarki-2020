@@ -61,8 +61,8 @@ const HeaderLink = styled.a`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  
-  @media(min-width: 768px) {
+
+  @media (min-width: 768px) {
     margin: 0.5rem 1rem;
   }
 `;
@@ -91,6 +91,9 @@ const Main = styled.main`
   align-items: center;
   justify-content: flex-start;
   padding: 1rem;
+  width: 100%;
+  max-width: 800px;
+  align-self: center;
 `;
 
 const Layout = (props) => {
