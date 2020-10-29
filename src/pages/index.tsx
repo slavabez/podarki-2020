@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import SimpleReactLightbox from "simple-react-lightbox";
 import Layout from "../components/Layout";
 import Gallery from "../components/PresetsGallery";
 import { dissectPresentImages } from "../utils/helpers"
@@ -36,7 +35,6 @@ const IndexPage = ({ data }) => {
   const imageData = dissectPresentImages(data?.allFile?.nodes);
   console.log(imageData);
   return (
-    <SimpleReactLightbox>
       <Layout>
         <Helmet>
           <meta name="description" content="" />
@@ -77,7 +75,6 @@ const IndexPage = ({ data }) => {
         </Helmet>
         <Gallery imageData={imageData} />
       </Layout>
-    </SimpleReactLightbox>
   );
 };
 
