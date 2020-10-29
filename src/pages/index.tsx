@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
-import UnderConstructionPage from "../components/UnderConstructionPage";
+import Gallery from "../components/PresetsGallery";
 
 export const query = graphql`
   query {
@@ -31,21 +31,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  const cats = [
-    {
-      name: `Каталог подарков 2021`,
-      size: data.allFile.nodes[1].prettySize,
-      url: data.allFile.nodes[1].publicURL,
-    },
-    {
-      name: `Каталог подарков 2021 (сжатый)`,
-      size: data.allFile.nodes[0].prettySize,
-      url: data.allFile.nodes[0].publicURL,
-    },
-  ];
-  const mainImage = data?.file?.childImageSharp?.fluid;
-
+const IndexPage = () => {
   return (
     <Layout>
       <Helmet>
@@ -85,7 +71,7 @@ const IndexPage = ({ data }) => {
         />
         <meta property="twitter:image" content="" />
       </Helmet>
-      <UnderConstructionPage cats={cats} bannerImage={mainImage} />
+      <Gallery />
     </Layout>
   );
 };
