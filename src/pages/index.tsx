@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => {
           property="og:description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-        <meta property="og:image" content="share_image_wide.png" />
+        <meta property="og:image" content="https://skazka-podarki.kz/share_image_wide.png" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://skazka-podarki.kz/" />
         <meta
@@ -66,7 +66,7 @@ const IndexPage = ({ data }) => {
           property="twitter:description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-        <meta property="twitter:image" content="share_image_wide.png" />
+        <meta property="twitter:image" content="https://skazka-podarki.kz/share_image_wide.png" />
       </Helmet>
       <Gallery imageData={imageData} />
     </Layout>
