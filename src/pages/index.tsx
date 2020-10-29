@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import Gallery from "../components/PresetsGallery";
-import { dissectPresentImages } from "../utils/helpers"
+import { dissectPresentImages } from "../utils/helpers";
 
 export const query = graphql`
   query {
@@ -35,46 +35,45 @@ const IndexPage = ({ data }) => {
   const imageData = dissectPresentImages(data?.allFile?.nodes);
   console.log(imageData);
   return (
-      <Layout>
-        <Helmet>
-          <meta name="description" content="" />
-          <title>Сказка - Новогодние подарки и кульки 2021</title>
+    <Layout>
+      <Helmet>
+        <title>Сказка - Новогодние подарки и кульки 2021</title>
 
-          <meta
-            name="title"
-            content="Сказка - Новогодние подарки и кульки 2021"
-          />
-          <meta
-            name="description"
-            content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
-          />
+        <meta
+          name="title"
+          content="Сказка - Новогодние подарки и кульки 2021"
+        />
+        <meta
+          name="description"
+          content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
+        />
 
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://skazka-podarki.kz/" />
-          <meta
-            property="og:title"
-            content="Сказка - Новогодние подарки и кульки 2021"
-          />
-          <meta
-            property="og:description"
-            content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
-          />
-          <meta property="og:image" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://skazka-podarki.kz/" />
+        <meta
+          property="og:title"
+          content="Сказка - Новогодние подарки и кульки 2021"
+        />
+        <meta
+          property="og:description"
+          content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
+        />
+        <meta property="og:image" content="share_image_wide.png" />
 
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://skazka-podarki.kz/" />
-          <meta
-            property="twitter:title"
-            content="Сказка - Новогодние подарки и кульки 2021"
-          />
-          <meta
-            property="twitter:description"
-            content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
-          />
-          <meta property="twitter:image" content="" />
-        </Helmet>
-        <Gallery imageData={imageData} />
-      </Layout>
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://skazka-podarki.kz/" />
+        <meta
+          property="twitter:title"
+          content="Сказка - Новогодние подарки и кульки 2021"
+        />
+        <meta
+          property="twitter:description"
+          content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
+        />
+        <meta property="twitter:image" content="share_image_wide.png" />
+      </Helmet>
+      <Gallery imageData={imageData} />
+    </Layout>
   );
 };
 
