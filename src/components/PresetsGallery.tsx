@@ -1,14 +1,19 @@
 import * as React from "react";
 import styled from "styled-components";
-
+// @ts-ignore
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 
 import Img from "gatsby-image";
 
 export interface PresentGalleryItem {
-  relativePath: string;
+  relativePath?: string;
   coverImage?: any;
   images?: any[];
+  number?: number;
+  name?: string;
+  weight?: number;
+  price?: number;
+  quantity?: number;
 }
 
 const GallerySection = styled.section`
@@ -106,13 +111,15 @@ const Gallery: React.FC<{ imageData: PresentGalleryItem[] }> = ({
         {imageData.map((id) => {
           const description = `Новогодний подарок "${id.relativePath}", 400 грамм за 1000 тенге.`;
           return (
-            <GalleryItemCard>
+            <GalleryItemCard key={id.relativePath}>
               <SimpleReactLightbox>
-                <SRLWrapper options={{
-                  caption: {
-                    captionFontFamily: "Roboto, sans-serif"
-                  }
-                }}>
+                <SRLWrapper
+                  options={{
+                    caption: {
+                      captionFontFamily: "Roboto, sans-serif",
+                    },
+                  }}
+                >
                   <CoverImageWrapper>
                     <Img
                       key={id.relativePath}
@@ -121,20 +128,16 @@ const Gallery: React.FC<{ imageData: PresentGalleryItem[] }> = ({
                     />
                   </CoverImageWrapper>
                   <OtherImageContainer>
-                    {id.images.map((imgData) => (
-                      <MiniImageWrapper>
-                        <Img
-                          key={imgData?.src}
-                          fluid={imgData}
-                          alt={description}
-                        />
+                    {id?.images?.map((imgData) => (
+                      <MiniImageWrapper key={imgData.src}>
+                        <Img fluid={imgData} alt={description} />
                       </MiniImageWrapper>
                     ))}
                   </OtherImageContainer>
                   <MetadataContainer>
-                    <Price>1000 ₸</Price>
-                    <Name>{id.relativePath}</Name>
-                    <Weight>455г</Weight>
+                    <Price>{id.price} ₸</Price>
+                    <Name>{id.name}</Name>
+                    <Weight>{id.weight}г</Weight>
                   </MetadataContainer>
                 </SRLWrapper>
               </SimpleReactLightbox>

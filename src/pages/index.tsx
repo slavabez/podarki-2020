@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import Gallery from "../components/PresetsGallery";
-import { dissectPresentImages } from "../utils/helpers";
+import { dissectPresentImages, getPresentsData } from "../utils/helpers"
 
 export const query = graphql`
   query {
@@ -31,8 +31,10 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data }) => {
+const IndexPage: React.FC<any> = ({ data }) => {
   const imageData = dissectPresentImages(data?.allFile?.nodes);
+  const allData = getPresentsData();
+  console.log(allData);
   return (
     <Layout>
       <Helmet>
@@ -55,7 +57,10 @@ const IndexPage = ({ data }) => {
           property="og:description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-        <meta property="og:image" content="https://skazka-podarki.kz/share_image_wide.png" />
+        <meta
+          property="og:image"
+          content="https://skazka-podarki.kz/share_image_wide.png"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://skazka-podarki.kz/" />
         <meta
@@ -66,7 +71,10 @@ const IndexPage = ({ data }) => {
           property="twitter:description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-        <meta property="twitter:image" content="https://skazka-podarki.kz/share_image_wide.png" />
+        <meta
+          property="twitter:image"
+          content="https://skazka-podarki.kz/share_image_wide.png"
+        />
       </Helmet>
       <Gallery imageData={imageData} />
     </Layout>
