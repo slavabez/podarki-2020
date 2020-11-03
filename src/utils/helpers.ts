@@ -13,8 +13,9 @@ export const dissectPresentImages: (
     const fileName = imageElement.relativePath.split(`/`)[1];
     if (presentsMap.has(folderName)) {
       // Add image to the map element, save image
-      const existingElement: PresentGalleryItem =
-        presentsMap.get(folderName) || {};
+      const existingElement: PresentGalleryItem = presentsMap.get(
+        folderName
+      ) || { number: -1 };
       let coverImage = undefined;
       let image = undefined;
       if (fileName === `1.jpg`) {
@@ -37,20 +38,22 @@ export const dissectPresentImages: (
       const newElement: PresentGalleryItem = {
         relativePath: folderName,
         images: [],
+        number: -1,
       };
       if (coverImage) newElement.coverImage = coverImage;
       if (image && Array.isArray(image)) newElement.images?.push(image);
       // Find and set the metadata (price, name, etc)
       const metaInfo = rawJsonData.find((i) => i.folder === folderName);
       newElement.name = metaInfo?.name;
-      newElement.number = metaInfo?.number;
+      newElement.number = metaInfo?.number || -1;
       newElement.price = metaInfo?.price;
       newElement.weight = metaInfo?.weight;
       newElement.quantity = metaInfo?.quantity;
       presentsMap.set(folderName, newElement);
     }
   }
-  return Array.from(presentsMap.values());
+  const arr = Array.from(presentsMap.values());
+  return arr.sort((a, b) => a.number - b.number);
 };
 
 interface JsonPresentItem {

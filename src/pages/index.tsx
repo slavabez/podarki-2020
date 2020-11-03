@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import Gallery from "../components/PresetsGallery";
-import { dissectPresentImages, getPresentsData } from "../utils/helpers"
+import { dissectPresentImages, getPresentsData } from "../utils/helpers";
 
 export const query = graphql`
   query {
@@ -33,8 +33,6 @@ export const query = graphql`
 
 const IndexPage: React.FC<any> = ({ data }) => {
   const imageData = dissectPresentImages(data?.allFile?.nodes);
-  const allData = getPresentsData();
-  console.log(allData);
   return (
     <Layout>
       <Helmet>

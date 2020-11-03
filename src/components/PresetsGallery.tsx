@@ -9,7 +9,7 @@ export interface PresentGalleryItem {
   relativePath?: string;
   coverImage?: any;
   images?: any[];
-  number?: number;
+  number: number;
   name?: string;
   weight?: number;
   price?: number;
@@ -109,7 +109,10 @@ const Gallery: React.FC<{ imageData: PresentGalleryItem[] }> = ({
       </FilterButtons>
       <GalleryWrapper>
         {imageData.map((id) => {
-          const description = `Новогодний подарок "${id.relativePath}", 400 грамм за 1000 тенге.`;
+          if (id.number === -1) {
+            console.log(id.relativePath);
+          }
+          const description = `Новогодний подарок "${id.name}", ${id.weight}гр за ${id.price} тенге.`;
           return (
             <GalleryItemCard key={id.relativePath}>
               <SimpleReactLightbox>
@@ -135,7 +138,7 @@ const Gallery: React.FC<{ imageData: PresentGalleryItem[] }> = ({
                     ))}
                   </OtherImageContainer>
                   <MetadataContainer>
-                    <Price>{id.price} ₸</Price>
+                    <Price>{id.price}₸</Price>
                     <Name>{id.name}</Name>
                     <Weight>{id.weight}г</Weight>
                   </MetadataContainer>
