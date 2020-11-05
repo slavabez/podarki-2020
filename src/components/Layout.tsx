@@ -96,18 +96,21 @@ const Main = styled.main`
   align-self: center;
 `;
 
-const Layout = (props) => {
+const Layout: React.FC = (props) => {
   return (
     <SiteWrapper>
       <Header>
         <SiteTitle>Сказка</SiteTitle>
         <HeaderLinks>
           <HeaderLink href={liteCatalogue}>
-            <HeaderLinkIcon src={catalogueIcon} alt="Katalog" />
+            <HeaderLinkIcon
+              src={catalogueIcon}
+              alt="Каталог Новогодних подарков 2021 от Сказки"
+            />
             <HeaderLinkText>Каталог</HeaderLinkText>
           </HeaderLink>
           <HeaderLink href="#footer">
-            <HeaderLinkIcon src={mapIcon} alt="Karta" />
+            <HeaderLinkIcon src={mapIcon} alt="Карта" />
             <HeaderLinkText>Где Мы</HeaderLinkText>
           </HeaderLink>
         </HeaderLinks>

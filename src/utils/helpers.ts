@@ -1,5 +1,7 @@
+import { useRef, useState, useEffect } from "react";
+import ResizeObserver from "resize-observer-polyfill";
 import data from "../../media/files/presents_data.json";
-import { PresentGalleryItem } from "../components/PresetsGallery";
+import { PresentGalleryItem } from "../components/GallerySection";
 
 export const dissectPresentImages: (
   rawGraphqlData: any
@@ -67,3 +69,22 @@ interface JsonPresentItem {
 export const getPresentsData: () => JsonPresentItem[] = () => {
   return data;
 };
+
+export function usePrevious(value: any) {
+  const ref = useRef();
+  useEffect(() => void (ref.current = value), [value]);
+  return ref.current;
+}
+
+export function useMeasure() {
+  const ref = useRef<any>();
+  const [bounds, set] = useState({ left: 0, top: 0, width: 0, height: 0 });
+  const [ro] = useState(
+    () => new ResizeObserver(([entry]) => set(entry.contentRect))
+  );
+  useEffect(() => {
+    if (ref.current) ro.observe(ref.current);
+    return () => ro.disconnect();
+  }, []);
+  return [{ ref }, bounds];
+}

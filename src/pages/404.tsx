@@ -1,58 +1,31 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
 import Layout from "../components/Layout";
-import GallerySection from "../components/GallerySection";
-import { dissectPresentImages } from "../utils/helpers";
 
-export const query = graphql`
-  query {
-    allFile(
-      filter: {
-        sourceInstanceName: { eq: "podarki" }
-        extension: { eq: "jpg" }
-      }
-    ) {
-      nodes {
-        relativePath
-        prettySize
-        childImageSharp {
-          fluid {
-            src
-            srcSet
-            base64
-            aspectRatio
-            originalImg
-            sizes
-          }
-        }
-      }
-    }
-    file(relativePath: { eq: "2021_image.png" }) {
-      relativePath
-      childImageSharp {
-        fluid(maxHeight: 400) {
-          aspectRatio
-          base64
-          originalImg
-          originalName
-          presentationHeight
-          presentationWidth
-          sizes
-          src
-        }
-      }
-    }
-  }
+const PageSection = styled.section`
+  text-align: center;
 `;
 
-const IndexPage: React.FC<any> = ({ data }) => {
-  const imageData = dissectPresentImages(data?.allFile?.nodes);
-  const bannerImage = data?.file?.childImageSharp;
+const Header = styled.h1`
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+`;
+const Paragraph = styled.p`
+  text-align: center;
+  margin-bottom: 1rem;
+`;
+
+const PageNotFoundPage: React.FC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Сказка - Новогодние подарки и кульки 2021</title>
+        <title>
+          Страница не найдена. Сказка - Новогодние подарки и кульки 2021
+        </title>
         <meta
           name="title"
           content="Сказка - Новогодние подарки и кульки 2021"
@@ -90,9 +63,13 @@ const IndexPage: React.FC<any> = ({ data }) => {
           content="https://skazka-podarki.kz/share_image_wide.png"
         />
       </Helmet>
-      <GallerySection imageData={imageData} bannerImage={bannerImage} />
+      <PageSection>
+        <Header>Страница не найдена</Header>
+        <Paragraph>Похоже что вы не нашли то, что искали.</Paragraph>
+        <Link to="/">Каталог подарков 2021</Link>
+      </PageSection>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default PageNotFoundPage;
