@@ -22,6 +22,7 @@ const CoverImageWrapper = styled.div`
   width: 220px;
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const OtherImageContainer = styled.div`
@@ -36,6 +37,7 @@ const MiniImageWrapper = styled.div`
   max-height: 70px;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 
   &:nth-child(n + 4) {
     display: none;

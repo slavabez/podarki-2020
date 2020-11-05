@@ -125,6 +125,7 @@ const SettingsSection = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: center;
+    padding: 0 1rem;
   }
 `;
 
