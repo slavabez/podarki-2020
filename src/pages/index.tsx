@@ -2,15 +2,30 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
-import UnderConstructionPage from "../components/UnderConstructionPage";
+import GallerySection from "../components/GallerySection";
+import { dissectPresentImages } from "../utils/helpers";
 
 export const query = graphql`
   query {
-    allFile(filter: { extension: { eq: "pdf" } }) {
+    allFile(
+      filter: {
+        sourceInstanceName: { eq: "podarki" }
+        extension: { eq: "jpg" }
+      }
+    ) {
       nodes {
         relativePath
-        publicURL
         prettySize
+        childImageSharp {
+          fluid {
+            src
+            srcSet
+            base64
+            aspectRatio
+            originalImg
+            sizes
+          }
+        }
       }
     }
     file(relativePath: { eq: "2021_image.png" }) {
@@ -31,27 +46,13 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  const cats = [
-    {
-      name: `Каталог подарков 2021`,
-      size: data.allFile.nodes[1].prettySize,
-      url: data.allFile.nodes[1].publicURL,
-    },
-    {
-      name: `Каталог подарков 2021 (сжатый)`,
-      size: data.allFile.nodes[0].prettySize,
-      url: data.allFile.nodes[0].publicURL,
-    },
-  ];
-  const mainImage = data?.file?.childImageSharp?.fluid;
-
+const IndexPage: React.FC<any> = ({ data }) => {
+  const imageData = dissectPresentImages(data?.allFile?.nodes);
+  const bannerImage = data?.file?.childImageSharp;
   return (
     <Layout>
       <Helmet>
-        <meta name="description" content="" />
         <title>Сказка - Новогодние подарки и кульки 2021</title>
-
         <meta
           name="title"
           content="Сказка - Новогодние подарки и кульки 2021"
@@ -60,7 +61,6 @@ const IndexPage = ({ data }) => {
           name="description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://skazka-podarki.kz/" />
         <meta
@@ -71,8 +71,10 @@ const IndexPage = ({ data }) => {
           property="og:description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-        <meta property="og:image" content="" />
-
+        <meta
+          property="og:image"
+          content="https://skazka-podarki.kz/share_image_wide.png"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://skazka-podarki.kz/" />
         <meta
@@ -83,9 +85,12 @@ const IndexPage = ({ data }) => {
           property="twitter:description"
           content="Детские новогодние подарки, новогодние кульки со сладостями в г. Кокшетау, г. Костанай и г. Петропавловск. Новогодние кульки с конфетами и шоколадом из Казахстана и России"
         />
-        <meta property="twitter:image" content="" />
+        <meta
+          property="twitter:image"
+          content="https://skazka-podarki.kz/share_image_wide.png"
+        />
       </Helmet>
-      <UnderConstructionPage cats={cats} bannerImage={mainImage} />
+      <GallerySection imageData={imageData} bannerImage={bannerImage} />
     </Layout>
   );
 };
