@@ -27,7 +27,7 @@ const FilterButtons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
-  
+
   @media (min-width: 768px) {
     justify-content: space-evenly;
   }
@@ -152,8 +152,10 @@ const GallerySection: React.FC<{
   imageData: PresentGalleryItem[];
   bannerImage: any;
 }> = ({ imageData, bannerImage }) => {
-  console.log(bannerImage);
-  const initialBrowserWidth = window?.innerWidth;
+  let initialBrowserWidth = 0;
+  if (typeof window !== "undefined") {
+    initialBrowserWidth = window.innerWidth;
+  }
   const [isFilterOpen, setIsFilterOpen] = React.useState(
     initialBrowserWidth >= 768
   );
