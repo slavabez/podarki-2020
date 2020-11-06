@@ -68,7 +68,7 @@ const Divider = styled.div`
 const RightHalf = styled.div``;
 
 const SiteFooter = () => (
-  <Footer id="footer">
+  <Footer>
     <AddressBlock>
       <AddressTop>
         <AddressIconContainer>
