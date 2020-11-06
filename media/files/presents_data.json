@@ -589,7 +589,7 @@
     "weight": 2000,
     "price": 4700,
     "quantity": 220,
-    "folder": "scshedryi_podarok"
+    "folder": "shedriy_podarok"
   },
   {
     "number": 92,
@@ -597,7 +597,7 @@
     "weight": 2060,
     "price": 5000,
     "quantity": 500,
-    "folder": "seif"
+    "folder": "seyf"
   },
   {
     "number": 53,
@@ -717,7 +717,7 @@
     "weight": 2300,
     "price": 5600,
     "quantity": 500,
-    "folder": "vyazannyi_chemodan"
+    "folder": "vyazanniy_chamodan"
   },
   {
     "number": 71,
