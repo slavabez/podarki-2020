@@ -31,15 +31,12 @@ export const query = graphql`
     file(relativePath: { eq: "2021_image.png" }) {
       relativePath
       childImageSharp {
-        fluid(maxHeight: 400) {
-          aspectRatio
+        fluid(maxWidth: 500) {
           base64
-          originalImg
-          originalName
-          presentationHeight
-          presentationWidth
-          sizes
+          aspectRatio
           src
+          srcSet
+          sizes
         }
       }
     }

@@ -289,7 +289,7 @@ const GallerySection: React.FC<{
         </FilterSection>
         <BannerAndButtons>
           <BannerImage>
-            <Img fluid={bannerImage.fluid} alt="Подарки 2021" />
+            <Img fluid={bannerImage?.fluid} alt="Подарки 2021" />
           </BannerImage>
           <FilterButtons>
             <button

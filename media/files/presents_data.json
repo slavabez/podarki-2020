@@ -750,5 +750,13 @@
     "price": 935,
     "quantity": 1067,
     "folder": "zolotoe_siyanie"
+  },
+  {
+    "number": 95,
+    "name": "Календарь",
+    "weight": 600,
+    "price": 2000,
+    "quantity": 0,
+    "folder": "kalendar"
   }
 ]
