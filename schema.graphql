@@ -458,7 +458,7 @@ type Query {
   site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
   siteBuildMetadata(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput): SiteBuildMetadata
   sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, matchPath: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
-  sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
+  sitePlugin(children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
 }
 
 type Site implements Node {
@@ -589,7 +589,6 @@ type SitePageGroupConnection {
 }
 
 type SitePlugin implements Node {
-  browserAPIs: [String]
   children: [Node!]!
   id: ID!
   internal: Internal!
@@ -657,19 +656,11 @@ type SitePluginPackageJsonPeerDependencies {
 }
 
 type SitePluginPluginOptions {
-  background_color: String
-  cache_busting_mode: String
   display: String
   fonts: [String]
-  include_favicon: Boolean
-  legacy: Boolean
   name: String
   path: String
   pathCheck: Boolean
-  short_name: String
-  start_url: String
-  theme_color: String
-  theme_color_in_head: Boolean
 }
 
 type SiteSiteMetadata {
@@ -1474,7 +1465,6 @@ enum SitePageFieldsEnum {
   parent___parent___parent___id
   path
   pluginCreatorId
-  pluginCreator___browserAPIs
   pluginCreator___children
   pluginCreator___children___children
   pluginCreator___children___children___children
@@ -1532,26 +1522,17 @@ enum SitePageFieldsEnum {
   pluginCreator___parent___parent___children
   pluginCreator___parent___parent___id
   pluginCreator___pluginFilepath
-  pluginCreator___pluginOptions___background_color
-  pluginCreator___pluginOptions___cache_busting_mode
   pluginCreator___pluginOptions___display
   pluginCreator___pluginOptions___fonts
-  pluginCreator___pluginOptions___include_favicon
-  pluginCreator___pluginOptions___legacy
   pluginCreator___pluginOptions___name
   pluginCreator___pluginOptions___path
   pluginCreator___pluginOptions___pathCheck
-  pluginCreator___pluginOptions___short_name
-  pluginCreator___pluginOptions___start_url
-  pluginCreator___pluginOptions___theme_color
-  pluginCreator___pluginOptions___theme_color_in_head
   pluginCreator___resolve
   pluginCreator___ssrAPIs
   pluginCreator___version
 }
 
 enum SitePluginFieldsEnum {
-  browserAPIs
   children
   children___children
   children___children___children
@@ -1657,19 +1638,11 @@ enum SitePluginFieldsEnum {
   parent___parent___parent___children
   parent___parent___parent___id
   pluginFilepath
-  pluginOptions___background_color
-  pluginOptions___cache_busting_mode
   pluginOptions___display
   pluginOptions___fonts
-  pluginOptions___include_favicon
-  pluginOptions___legacy
   pluginOptions___name
   pluginOptions___path
   pluginOptions___pathCheck
-  pluginOptions___short_name
-  pluginOptions___start_url
-  pluginOptions___theme_color
-  pluginOptions___theme_color_in_head
   resolve
   ssrAPIs
   version
@@ -1989,7 +1962,6 @@ input SitePageSortInput {
 }
 
 input SitePluginFilterInput {
-  browserAPIs: StringQueryOperatorInput
   children: NodeFilterListInput
   id: StringQueryOperatorInput
   internal: InternalFilterInput
@@ -2045,19 +2017,11 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
 }
 
 input SitePluginPluginOptionsFilterInput {
-  background_color: StringQueryOperatorInput
-  cache_busting_mode: StringQueryOperatorInput
   display: StringQueryOperatorInput
   fonts: StringQueryOperatorInput
-  include_favicon: BooleanQueryOperatorInput
-  legacy: BooleanQueryOperatorInput
   name: StringQueryOperatorInput
   path: StringQueryOperatorInput
   pathCheck: BooleanQueryOperatorInput
-  short_name: StringQueryOperatorInput
-  start_url: StringQueryOperatorInput
-  theme_color: StringQueryOperatorInput
-  theme_color_in_head: BooleanQueryOperatorInput
 }
 
 input SitePluginSortInput {
