@@ -72,7 +72,7 @@ const SiteFooter = () => (
     <AddressBlock>
       <AddressTop>
         <AddressIconContainer>
-          <img src={mapIcon} alt="Karta" />
+          <img src={mapIcon} alt="Карта" />
         </AddressIconContainer>
         <AddressTextContainer>
           <address>Сказка ждёт вас:</address>
@@ -99,7 +99,7 @@ const SiteFooter = () => (
     <AddressBlock>
       <AddressTop>
         <AddressIconContainer>
-          <img src={mapIcon} alt="Karta" />
+          <img src={mapIcon} alt="Карта" />
         </AddressIconContainer>
         <AddressTextContainer>
           <address>Сказка ждёт вас:</address>
@@ -117,7 +117,7 @@ const SiteFooter = () => (
             тел: <a href="tel: +7 7142 392427">39-24-27</a>
           </address>
           <address>
-            <a href="tel:+7 777 538 0260">+7 777 538 0260</a>
+            <a href="tel:+7 707 260 2362">+7 707 260 2362</a>
           </address>
         </RightHalf>
       </AddressBottom>
