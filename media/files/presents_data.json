@@ -758,5 +758,117 @@
     "price": 2000,
     "quantity": 0,
     "folder": "kalendar"
+  },
+  {
+    "number": 96,
+    "name": "Рюкзак Бычок / Дед Мороз",
+    "weight": 1230,
+    "price": 3300,
+    "quantity": 0,
+    "folder": "ryukzak_bychok_ded_moroz"
+  },
+  {
+    "number": 97,
+    "name": "Лучший подарок (жесть)",
+    "weight": 500,
+    "price": 3200,
+    "quantity": 0,
+    "folder": "luchshiy_podarok_zhest"
+  },
+  {
+    "number": 98,
+    "name": "Джип",
+    "weight": 500,
+    "price": 3200,
+    "quantity": 0,
+    "folder": "dzhip"
+  },
+  {
+    "number": 99,
+    "name": "Портфель Борька и Зорька",
+    "weight": 620,
+    "price": 2000,
+    "quantity": 0,
+    "folder": "portfel_borka_i_zorka"
+  },
+  {
+    "number": 100,
+    "name": "Портфель Города",
+    "weight": 620,
+    "price": 2000,
+    "quantity": 0,
+    "folder": "portfel_goroda"
+  },
+  {
+    "number": 101,
+    "name": "Шкатулка часики",
+    "weight": 470,
+    "price": 1550,
+    "quantity": 0,
+    "folder": "shkatulka_chasiki"
+  },
+  {
+    "number": 102,
+    "name": "Птичка на ветке",
+    "weight": 600,
+    "price": 1550,
+    "quantity": 0,
+    "folder": "ptichka_na_vetke"
+  },
+  {
+    "number": 103,
+    "name": "Пушистики",
+    "weight": 600,
+    "price": 1550,
+    "quantity": 0,
+    "folder": "pushistiki"
+  },
+  {
+    "number": 104,
+    "name": "Новогодний экспрес",
+    "weight": 600,
+    "price": 1550,
+    "quantity": 0,
+    "folder": "novogodniy_ekspress"
+  },
+  {
+    "number": 105,
+    "name": "Рюкзак Лео",
+    "weight": 1000,
+    "price": 4500,
+    "quantity": 0,
+    "folder": "ryukzak_leo"
+  },
+  {
+    "number": 106,
+    "name": "Рюкзак Сеня",
+    "weight": 1000,
+    "price": 4500,
+    "quantity": 0,
+    "folder": "ryukzak_senya"
+  },
+  {
+    "number": 107,
+    "name": "Ёлочные игрушки",
+    "weight": 1090,
+    "price": 2500,
+    "quantity": 0,
+    "folder": "elochnye_igrushki"
+  },
+  {
+    "number": 108,
+    "name": "Лес чудес",
+    "weight": 1090,
+    "price": 2500,
+    "quantity": 0,
+    "folder": "les_chudes"
+  },
+  {
+    "number": 109,
+    "name": "Окна",
+    "weight": 1090,
+    "price": 2500,
+    "quantity": 0,
+    "folder": "okna"
   }
 ]

@@ -17,7 +17,10 @@ export const query = graphql`
         relativePath
         prettySize
         childImageSharp {
-          fluid {
+          fluid(
+            sizes: "[50,200,500,1200]"
+            srcSetBreakpoints: [50, 200, 500, 1200]
+          ) {
             src
             srcSet
             base64
