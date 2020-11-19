@@ -12,20 +12,22 @@ export const query = graphql`
         sourceInstanceName: { eq: "podarki" }
         extension: { eq: "jpg" }
       }
+      sort: { fields: [sourceInstanceName], order: [ASC] }
     ) {
       nodes {
         relativePath
         prettySize
         childImageSharp {
           fluid(
-            sizes: "[50,200,500,1200]"
-            srcSetBreakpoints: [50, 200, 500, 1200]
+            sizes: "[70,220,500]"
+            srcSetBreakpoints: [70, 220, 500]
+            quality: 70
+            maxWidth: 800
           ) {
             src
             srcSet
             base64
             aspectRatio
-            originalImg
             sizes
           }
         }

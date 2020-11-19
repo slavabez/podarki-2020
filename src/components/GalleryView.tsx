@@ -102,14 +102,14 @@ const GalleryView: React.FC<{ presentsToShow: PresentGalleryItem[] }> = ({
                   <CoverImageWrapper>
                     <Img
                       key={id.relativePath}
-                      fluid={id.coverImage}
+                      fluid={id.coverImage.fluid}
                       alt={description}
                     />
                   </CoverImageWrapper>
                   <OtherImageContainer>
                     {id?.images?.map((imgData) => (
-                      <MiniImageWrapper key={imgData.src}>
-                        <Img fluid={imgData} alt={description} />
+                      <MiniImageWrapper key={imgData.fluid.src}>
+                        <Img fluid={imgData.fluid} alt={description} />
                       </MiniImageWrapper>
                     ))}
                   </OtherImageContainer>

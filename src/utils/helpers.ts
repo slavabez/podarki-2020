@@ -21,9 +21,9 @@ export const dissectPresentImages: (
       let coverImage = undefined;
       let image = undefined;
       if (fileName === `1.jpg`) {
-        coverImage = imageElement.childImageSharp.fluid;
+        coverImage = imageElement.childImageSharp;
       } else {
-        image = imageElement.childImageSharp.fluid;
+        image = imageElement.childImageSharp;
       }
       if (coverImage) existingElement.coverImage = coverImage;
       if (image) existingElement.images?.push(image);
@@ -33,9 +33,9 @@ export const dissectPresentImages: (
       let coverImage = undefined;
       let image = undefined;
       if (fileName === `1.jpg`) {
-        coverImage = imageElement.childImageSharp.fluid;
+        coverImage = imageElement.childImageSharp;
       } else {
-        image = imageElement.childImageSharp.fluid;
+        image = imageElement.childImageSharp;
       }
       const newElement: PresentGalleryItem = {
         relativePath: folderName,
@@ -43,7 +43,7 @@ export const dissectPresentImages: (
         number: -1,
       };
       if (coverImage) newElement.coverImage = coverImage;
-      if (image && Array.isArray(image)) newElement.images?.push(image);
+      if (image) newElement.images?.push(image);
       // Find and set the metadata (price, name, etc)
       const metaInfo = rawJsonData.find((i) => i.folder === folderName);
       newElement.name = metaInfo?.name;
@@ -54,7 +54,7 @@ export const dissectPresentImages: (
       presentsMap.set(folderName, newElement);
     }
   }
-  console.log(presentsMap);
+  console.log(presentsMap.get("kubik_malenkiy"));
   const arr = Array.from(presentsMap.values());
   return arr.sort((a, b) => a.number - b.number);
 };
