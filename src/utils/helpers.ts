@@ -54,7 +54,6 @@ export const dissectPresentImages: (
       presentsMap.set(folderName, newElement);
     }
   }
-  console.log(presentsMap.get("kubik_malenkiy"));
   const arr = Array.from(presentsMap.values());
   return arr.sort((a, b) => a.number - b.number);
 };
